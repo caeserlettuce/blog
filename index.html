@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>dapug blog</title>
+    <link rel="stylesheet" href="styles/win9x/layout.min.css">
+    <link rel="stylesheet" href="styles/win9x/theme.css">
+    <link rel="stylesheet" href="styles/win9x/skins/95.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="desktop grow" style="padding-top: 1px; padding-bottom: 1px;">
+
+      <main class="margin window active main-window">
+        <div class="title-bar">
+          <div class="title-bar-text" style="margin-left: 0.25em;">dapug.lol - blog</div>
+          <div class="title-bar-buttons">
+            <button data-close="" onclick="close_page()"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          
+
+          <div class="columns">
+            <div class="column-side left">
+              
+              <div class="list-view" style="display: block;">
+                <br>
+                <h1 style="margin-left: 0.5em;">the dapug blog</h1>
+                <br>
+
+                <div class="list post-list" role="listbox">
+                  <table class="detailed" style="width: 100%;">
+                    <thead>
+                      <tr>
+                        <th style="width: 80%">Name</th>
+                        <th style="width: 20%">Modified</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      
+                    </tbody>
+
+                    <tr role="option" class="template post-entry">
+                      <td class="icon" style="pointer-events: none;">
+                        <img class="post-icon" src="icons/folder16.png">
+                        <div class="post-title">My Documents</div>
+                      </td>
+                      <td class="post-date">2020-07-14 20:28</td>
+                    </tr>
+                  </table>
+                </div>
+              
+                
+
+              </div>
+              
+              <div class="post-view" style="display: none;">
+                <iframe class="post-iframe" style="width: 100%; height: 100%;" src="posts/template.html"></iframe>
+              </div>
+
+              
+
+
+            </div>
+            <div class="column-side right">
+              <button class="back-button" style="margin-top: 5px; margin-bottom: 5px; display: none;" onclick="build_post_list()"> &lt; Go Back to List</button>
+              <br class="back-button-spacing">
+              <div class="lowered padding">
+                <h2>blog info</h2>
+                <br>
+                <h3 class="info-name"></h3>
+                <p class="info-date"></p>
+                <p class="info-desc"></p>
+                <img src="" class="info-img">
+              </div>
+              <br>
+              <div class="lowered padding">
+                <div class="list" role="listbox">
+                  <table class="detailed">
+                    <tbody>
+                      <tr role="option" ondblclick="window.open(`https://dapug.lol`)">
+                        <td class="icon">
+                          <img src="styles/win9x/icons/html-16x16.png">
+                          <div class="icon-label">Website</div>
+                        </td>
+                      </tr>
+                      <tr role="option" ondblclick="window.open(`https://youtube.com/DaPugFilms`)">
+                        <td class="icon">
+                          <img src="styles/win9x/icons/video-16x16.png">
+                          <div class="icon-label">Youtube</div>
+                        </td>
+                      </tr>
+                      <tr role="option" ondblclick="window.open(`https://github.com/caeserlettuce`)">
+                        <td class="icon">
+                          <img src="styles/win9x/icons/notepad-16x16.png">
+                          <div class="icon-label">Github</div>
+                        </td>
+                      </tr>
+                      <tr role="option" ondblclick="window.open(`https://bsky.app/profile/caeserlettuce.bsky.social`)">
+                        <td class="icon">
+                          <img src="styles/win9x/icons/info-16x16-8bpp.png">
+                          <div class="icon-label">Bluesky</div>
+                        </td>
+                        <tr role="option" ondblclick="window.open(`https://twitter.com/caeserlettuce`)">
+                          <td class="icon">
+                            <img src="styles/win9x/icons/warning-16x16-8bpp.png">
+                            <div class="icon-label">Twitter</div>
+                          </td>
+                        </tr>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <br>
+              <div class="footer-imgs">
+                <img src="img/notepad.png">
+                <img src="img/technoblade.png">
+              </div>
+              <p class="footer-text" style="margin-left: 0.5em;">©2025 <a href="https://dapug.lol">dapug.lol</a> - contact me at: jesse @ benson dot lol</p>
+            </div>
+          </div>
+          
+
+        </div>
+      </main>
+    </div>
+
+    <script>const module = {};</script>
+    <script type="module">
+      import { initdomlist } from "./styles/win9x/modules/lists.js";
+      module.initlist = initdomlist;
+    </script>
+
+    <script src="posts.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
