@@ -103,14 +103,30 @@ function build_post_list() {
     elem.setAttribute("tabindex", "-1");
     elem.setAttribute("aria-selected", "false");
     elem.setAttribute("post-id", `${post_id}`);
-    elem.addEventListener("dblclick", (event) => {
-      var post_id = event.target.getAttribute("post-id");
-      display_post(post_id)
-    });
-    elem.addEventListener("click", (event) => {
-      var post_id = event.target.getAttribute("post-id");
-      post_info(post_id);
-    });
+
+    elem.setAttribute("ondblclick", `display_post("${post_id}")`);
+    // elem.addEventListener("dblclick", (event) => {
+    //   var post_id = event.target.getAttribute("post-id");
+    //   display_post(post_id);
+    // });
+
+    
+    if (mobile == true) {
+      elem.setAttribute("onclick", `display_post("${post_id}")`);
+    } else {
+      elem.setAttribute("onclick", `post_info("${post_id}")`);
+    }
+    
+    // elem.addEventListener("click", (event) => {
+    //   var post_id = event.target.getAttribute("post-id");
+    //   if (mobile == true) {
+    //     display_post(post_id);
+    //   } else {
+    //     post_info(post_id);
+    //   }
+      
+    // });
+    
     elem.addEventListener("keyup", (event) => {
       if (event.which == 38 || event.which == 40) {
         var post_id = event.target.getAttribute("post-id");

@@ -16,6 +16,12 @@
         text-decoration: underline !important;
       }
 
+      img {
+        width: 100%;
+      }
+      body {
+        overflow-y: scroll;
+      }
 
     </style>
 
@@ -38,12 +44,12 @@
       module.initlist = initdomlist;
     </script>
 
-<script>
-  var as = document.querySelectorAll("a");
-  for (i in as) {
-    as[i].setAttribute("target", "_blank");
-  }
-</script>
+    <script>
+      var as = document.querySelectorAll("a");
+      for (i in as) {
+        as[i].setAttribute("target", "_blank");
+      }
+    </script>
 
     <script src="posts.js"></script>
     <script src="main.js"></script>

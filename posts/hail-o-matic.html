@@ -19,6 +19,9 @@
       img {
         width: 100%;
       }
+      body {
+        overflow-y: scroll;
+      }
 
     </style>
 
@@ -28,7 +31,7 @@
   
     <div class="window-body" style="margin-left: 0.75em; margin-right: 0.75em; margin-top: 0em;">
       <br>
-      <h1>Hail-o-Matic Amp</h1>
+      <h1>Hail-O-Matic Amp</h1>
       <br>
       <p>I went to Hamfest last weekend, where i found lots of cool vintage equipment. most of which i couldn't afford.
 However there were lots of bins that were labeled "6 for $1" or something similar. In one of those bins was sitting this: an Airguide Hail-O-Matic,
@@ -39,12 +42,73 @@ which goes into more depth about the history of Airguide.</p>
 
       <p>Anyways, this one was in kinda rough shape. It was missing two dials, and the screws that held the front panel to the rest of the body.</p>
 
-      <img src="../img/hailomatic-1.JPG"
+      <img src="../img/hailomatic-1.JPG">
 
+      <p>So I opened it up, and found lots of wires. like, a lot of wires.</p>
+
+      <div style="width: 100%; display: flex;">
+        <img src="../img/hailomatic-2.JPG" style="width: 33.33%">
+        <img src="../img/hailomatic-3.JPG" style="width: 33.33%">
+        <img src="../img/hailomatic-4.JPG" style="width: 33.33%">
+      </div>
+
+      <p>So I took a few hours and desoldered absolutely everything from everything, and put all of the components into a ziploc bag to be added
+        to my spare parts bin.
+      </p>
+      <br>
+      <p>My goal with this project was to actually build my own circuit, instead of what I have done before, where I'd just take the guts of a cheap
+        bluetooth speaker and retrofit it.
+      </p>
+      <br>
+      <p>
+        Thankfully I had a bunch of extra TDA2030A ICs from my IKEA power strip distortion pedal project, so that was the op-amp chip I went with for this.
+      </p>
+      <br>
+      <img src="../img/hailomatic-5.JPG">
+      <br><br>
+      <p>I took off all of the dials and things from the front plate, cleaned the front plate, cleaned the speaker grille, then put the speaker back on it.
+         Clean!
+      </p>
+      <br>
+      <div style="width: 100%; display: flex;">
+        <img src="../img/hailomatic-6.JPG" style="width: 50%">
+        <img src="../img/hailomatic-7.JPG" style="width: 50%">
+      </div>
+      <br>
+      <p>I 3d-printed two pieces, the first was a grommet to fit a barrel-style power jack. The second was a tube to fit a 1/4" to 3.5mm adapter, and I epoxy'd
+        two pieces of hard drive magnet to the end of the tube so that the adapter will stay inside the tube. If you shake it really hard it'll fall out,
+        but if it's being shaken that hard, there's bigger issues.
+      </p>
+      <br><br>
+      <img src="../img/hailomatic-8.JPG">
+      <br>
+      <p>judge me all you want, but it works. I didn't have a stereo 1/4" jack, so I had to make do with what I had.</p>
+
+      <img src="../img/hailomatic-9.JPG">
+      <img src="../img/hailomatic-10.JPG">
+
+      <p>Here's the final wiring. I reused the original potentiometers, both because the one on the left had an on/off switch, and also because the original dials wouldn't
+        fit on any of my potentiometers. they only had like 400 something ohms of resistance in them, which was enough for the volume knob, but nowhere near enough for
+        the gain knob. so I have three 100kΩ resistors going into the potentiometer to get the right gain. does the potentiometer make any noticeable difference? no.
+        am i keeping it? yes.
+      </p>
+      <br>
+      <p>For anyone curious, here's the schematic for it. notice the fuse is not there, because I forgot it. I'm lazy.</p>
+
+      <img src="../img/hail o matic amp-REV-D.png">
+
+      <br><br>
       
+      <div style="width: 100%; display: flex; justify-content: center;"><iframe width="560" height="315" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture;" allowFullScreen src="https://www.youtube.com/embed/N1n8cxuyj1c?rel=0"></iframe></div>
+
+      <br>
+      <p>so that's pretty much it</p>
+
     </div>
   
-   
+    <div class="zooomy-container">
+      <img class="zoomy" src="">
+    </div>
 
     <script>const module = {};</script>
     <script type="module">
