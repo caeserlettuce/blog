@@ -90,6 +90,12 @@ function build_post_list() {
   document.querySelector(".list-view").style.display = "block";
   document.querySelector(".back-button-spacing").style.display = "block";
 
+
+  document.querySelector(".info-name").innerHTML = ``;
+  document.querySelector(".info-date").innerHTML = ``;
+  document.querySelector(".info-desc").innerHTML = ``;
+  document.querySelector(".info-img").src = ``;
+
   var url = `${window.location.pathname}`;
   history.pushState({}, null, url);
 

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>dapug blog</title>
+    <link rel="stylesheet" href="../styles/win9x/layout.min.css">
+    <link rel="stylesheet" href="../styles/win9x/theme.css">
+    <link rel="stylesheet" href="../styles/win9x/skins/95.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="icon" href="../styles/win9x/icons/my-computer-32x32.png">
+
+    <style>
+      p {
+        font-size: 1.125em;
+      }
+      a {
+        text-decoration: underline !important;
+      }
+
+      img {
+        width: 100%;
+      }
+      body {
+        overflow-y: scroll;
+      }
+
+    </style>
+
+    
+  </head>
+  <body>
+  
+    <div class="window-body" style="margin-left: 0.75em; margin-right: 0.75em; margin-top: 0em;">
+      
+      <br>
+      <h1>IKEA power strip distortion pedal</h1>
+      <br>
+      <p>So my friend Gavin sent me this video by a youtuber we both watch, where he took an IKEA power strip and turned it into a distortion pedal.</p>
+      <br>
+      <div style="width: 100%; display: flex; justify-content: center;"><iframe width="560" height="315" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture;" allowFullScreen src="https://www.youtube.com/embed/U2J3ebi0hAc?rel=0"></iframe></div>
+      <br>
+      <p>essentially he's using an op-amp to amplify the guitar up to ~12v, then running that backwards through a 1:10 step-down transformer, so that 
+        it steps up the signal from ~12v to ~120v, then that signal runs in parallel with a neon bulb, then it's run through a 1MΩ resistor so its brought back down to ~2v.
+        a wild journey.
+      </p>
+      <br><br>
+      <p>below is the schematic he included in the video:</p>
+
+      <img src="../img/fleshsimulator-schematic.png">
+      <br>
+      <p>this schematic is mostly good, but it has some issues. for one, the camera's out of focus near the top so I can't read the capacitor values.
+        second, he never says what op-amp chip he used. so i ended up just buying a cheap pack of TDA2030A's hoping they'd work. I mean, their pinout
+        matches his schematic.
+      </p>
+      <br>
+      <p>well, i tried building it, and it didn't really work. i mean it technically worked, in the sense that it distorted the signal, but the neon
+        bulb didnt turn on, and the IC got hot to the touch, (it got up to over 200°F) even with a heat sink. i had to find another solution.
+      </p>
+      <br>
+      <p>here's what it looked like wired up, though:</p>
+      <img src="../img/ikea-dist-1.JPEG">
+      <p>yes, i chained together 10x 10uF capacitors to make 100uF capacitors, because i didn't have any. i doubt that would cause the overheating.</p>
+      <br>
+      <br>
+      <p>gavin and i started googling. we were trying to find anybody else who had done something similar to this. and luckily, we found this video:</p>
+      <br>
+      <div style="width: 100%; display: flex; justify-content: center;"><iframe width="560" height="315" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture;" allowFullScreen src="https://www.youtube.com/embed/BmYvxnKo2pA?rel=0"></iframe></div>
+      <br>
+      <p>i cannot even count the amount of times i have had an issue in an electronics project, and then some random indian guy on youtube saves the day.</p>
+      <br>
+      <p>so not only did he fully demonstrate this circuit, he ALSO linked a schematic in the description AND a parts list! and you know what's even better?
+        he used a TDA2030! I have an abundance of those now!
+      </p>
+      <br>
+      <p>here's his schematic:</p>
+      <img src="../img/high_voltage_distortion.png">
+      <br>
+      <p>since this project, i've actually used this schematic as a base for just a regular amp circuit with the TDA2030. take a look at the <a href="https://dapug.lol/blog/?post=hail-o-matic">hail-o-matic amp</a>.
+      the amplifier circuit is literally just a copy paste of the first half of this.</p>
+      <br>
+      <br>
+      <img src="../img/ikea-dist-2.JPEG">
+      <br>
+      <p>this is the second iteration of the pedal, which uses the new schematic. I even got to use a vintage clarostat 1MΩ potentiometer!</p>
+      <br>
+      <p>this circuit mostly worked! it distorted the guitar, it didn't get hot, but it still wasn't turning on the neon bulb. so i decided to look
+        at the output from the transformer with my oscilloscope.</p>
+      <p>bingo.</p>
+      <p>this transformer came from a 12v wall wart, however it was a newer one, and also had a second, smaller transformer. i thought it was small enough
+        that most likely it didn't make a huge difference with my application. but i was wrong. this transformer was only outputting around 18V. why?
+        well i forgot to mention that this new circuit was designed to run off of 9v rather than 12v. but even if i were to put in 12v, this transformer still
+        won't do. so what's the solution?</p>
+
+      <p>the next day i went to hamfest, and i bought about a banker's box worth of stuff. including: an older looking 9v wall wart. I bought it hoping it was old
+        enough that it was just a single transformer inside. and i was right.
+      </p>
+      <br>
+      <img src="../img/ikea-dist-3.JPEG">
+      <br>
+      <p>the perfect transformer. one input, one output.</p>
+      <br><br>
+      <p>i wired it up. plugged the guitar in. it still didn't work. WHY?</p>
+      <br>
+      <p>i checked it with the oscilloscope again, and the voltage was just below 80v. so i tried something. I tried powering the circuit with 12v instead of 9v.
+        and you know what? it worked! and the chip was fine with it too, since it was designed to handle up to like 24v or something.
+      </p>
+      <br>
+      <img src="../img/ikea-dist-4.JPEG">
+      <br>
+      <p>here's the final wiring. i would say that i managed to make it all fit inside the plugbar, but technically that's incorrect, since i had to make
+        the back larger in order to fit the transformer.
+      </p>
+      <div style="display: flex; width: 100%;">
+        <img src="../img/ikea-dist-5.JPEG" style="width: 50%">
+        <img src="../img/ikea-dist-6.JPEG" style="width: 50%">
+      </div>
+      <br>
+      <p>here's my final schematic:</p> 
+      <img src="../img/fleshsimulator fuzz pedal REV C.png">
+      <br>
+      
+      <p>and here's a video of gavin playing it:</p>
+      <br>
+      <div style="width: 100%; display: flex; justify-content: center;"><iframe width="560" height="315" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture;" allowFullScreen src="https://www.youtube.com/embed/ghRhI8W84Ec?rel=0"></iframe></div>
+      <br>
+      <p>so there you have it. the world's most cursed guitar pedal</p>
+      <br>
+
+    </div>
+  
+   
+
+    <script>const module = {};</script>
+    <script type="module">
+      import { initdomlist } from "./styles/win9x/modules/lists.js";
+      module.initlist = initdomlist;
+    </script>
+
+    <script>
+      var as = document.querySelectorAll("a");
+      for (i in as) {
+        as[i].setAttribute("target", "_blank");
+      }
+    </script>
+
+    <script src="posts.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

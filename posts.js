@@ -15,6 +15,14 @@ var post_db = [
         "desc": "Turning a vintage marine hailer into a small speaker/amp",
         "icon": "audio-okay-16x16.png",
         "img": "hailomatic.png"
+    },
+    {
+        "id": "ikea-distortion",
+        "title": "IKEA power strip distortion pedal",
+        "date": "2025-03-20",
+        "desc": "Using the neon bulb from a power strip switch to make a distortion pedal",
+        "icon": "audio-okay-16x16.png",
+        "img": "ikea-dist.png"
     }
 
 
