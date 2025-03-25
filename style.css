@@ -121,3 +121,7 @@ a:visited {
 .post-entry .post-title {
     margin-left: 5px;
 }
+
+table a {
+    color: black;
+}

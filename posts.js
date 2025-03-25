@@ -9,6 +9,14 @@ var post_db = [
     //     "img": "test.png"
     // },
     {
+        "id": "zenith-system-3",
+        "title": "1979 Zenith System 3 TV Console",
+        "date": "2025-03-24",
+        "desc": "Trying to fix a free TV console from Facebook Marketplace",
+        "icon": "shutdown-16x16.png",
+        "img": "zenith-sys3.JPEG"
+    },
+    {
         "id": "hail-o-matic",
         "title": "Hail-O-Matic Amp",
         "date": "2025-03-20",

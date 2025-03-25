@@ -54,8 +54,14 @@ function display_post(id) {
   console.log(`dISPLAY POST: ${id}`);
 
   post_info(id);
-   
-  document.querySelector(".post-iframe").src = `posts/${id}.html`;
+  
+  var iframe_url = `posts/${id}.html`;
+
+  if (mobile == true) {
+    iframe_url += "?mobile=true";
+  }
+
+  document.querySelector(".post-iframe").src = iframe_url;
 
   
   document.querySelector(".post-view").style.display = "block";
@@ -117,11 +123,7 @@ function build_post_list() {
     // });
 
     
-    if (mobile == true) {
-      elem.setAttribute("onclick", `display_post("${post_id}")`);
-    } else {
-      elem.setAttribute("onclick", `post_info("${post_id}")`);
-    }
+    
     
     // elem.addEventListener("click", (event) => {
     //   var post_id = event.target.getAttribute("post-id");
@@ -139,6 +141,28 @@ function build_post_list() {
         post_info(post_id);
       }
     });
+
+    if (mobile == true) {
+
+      console.log(elem)
+      var elem_inner = elem.innerHTML;
+      var url = `${window.location.pathname}?post=${post_id}`;
+      var elem2 = document.createElement("a");
+      elem2.setAttribute("href", `${url}`);
+      
+      for (b in elem.childNodes) {
+        if (typeof elem.childNodes[b] == "object") {
+          elem2.appendChild(elem.childNodes[b].cloneNode(true));
+        }
+      }
+      console.log(elem2);
+      elem.innerHTML = "";
+      elem.appendChild(elem2);
+
+      // elem.setAttribute("onclick", `display_post("${post_id}")`);
+    } else {
+      elem.setAttribute("onclick", `post_info("${post_id}")`);
+    }
 
     document.querySelector(".post-list tbody").appendChild(elem);
   }
