@@ -31,7 +31,7 @@
   </head>
   <body>
   
-    <div class="window-body" style="margin-left: 0.75em; margin-right: 0.75em; margin-top: 0em;">
+    <div class="window-body post-iframe" style="margin-left: 0.75em; margin-right: 0.75em; margin-top: 0em;">
       
       <h1>hello</h1>
 
@@ -53,7 +53,22 @@
     <script>
       var as = document.querySelectorAll("a");
       for (i in as) {
-        as[i].setAttribute("target", "_blank");
+        if (typeof as[i] == "object") {
+          as[i].setAttribute("target", "_blank");  
+        }
+      }
+
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const url_mobile = urlParams.get('mobile');
+
+      console.log("BOBY", url_mobile);
+
+      if (url_mobile == "true") {
+        var elem = document.createElement("link");
+        elem.setAttribute("rel", "stylesheet");
+        elem.setAttribute("href", "../mobile.css");
+        document.head.appendChild(elem);
       }
     </script>
 
